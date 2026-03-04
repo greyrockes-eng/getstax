@@ -144,9 +144,17 @@ export default function Stax() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleEmail = (e: React.FormEvent) => {
+  const handleEmail = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) setEmailSent(true);
+    if (!email) return;
+    try {
+      await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+    } catch {}
+    setEmailSent(true);
   };
 
   const reset = () => {
