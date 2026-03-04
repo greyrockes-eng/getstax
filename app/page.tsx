@@ -111,7 +111,7 @@ export default function Stax() {
       let parsed;
       try { parsed = JSON.parse(raw.replace(/```json|```/g,"").trim()); }
       catch { parsed = {title:"Your Stack",summary:"Built for your goals.",tool_ids:[1,7,9,14],message:"Here's a solid starting stack tailored for you!"}; }
-      const recs = (parsed.tool_ids||[]).map(id=>TOOLS.find(t=>t.id===id)).filter(Boolean);
+      const recs = (parsed.tool_ids||[]).map((id:number)=>TOOLS.find(t=>t.id===id)).filter(Boolean);
       setStack(recs);
       setStackTitle(parsed.title||"Your Stack");
       setStackSummary(parsed.summary||"");
