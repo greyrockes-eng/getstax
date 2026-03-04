@@ -77,7 +77,7 @@ export default function Stax() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef(null);
   const cardRef = useRef(null);
-  const animFrame = useRef(null);
+  const animFrame = useRef<number>(0);
   useEffect(() => { (messagesEndRef.current as HTMLDivElement | null)?.scrollIntoView({behavior:"smooth"}); }, [messages]);
   useEffect(() => { setMounted(true); }, []);
   // Animate scrolling tool pills
