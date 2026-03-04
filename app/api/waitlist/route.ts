@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
         "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Stax <onboarding@resend.dev>",
+        from: "Stax <hello@getstax.ai>",
         to: [email],
         subject: "You're on the Stax waitlist! 🔥",
         html: `
@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
         "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Stax <onboarding@resend.dev>",
+       from: "Stax <hello@getstax.ai>", 
         to: ["83tlog@gmail.com"],
         subject: `🔥 New Stax waitlist signup: ${email}`,
         html: `<p>New signup: <strong>${email}</strong></p>`,
