@@ -1,4 +1,5 @@
 "use client";
+type Message = { role: string; content: string; };
 import { useState, useEffect, useRef } from "react";
 
 // ── TOOL DATABASE ──────────────────────────────────────────────
@@ -61,10 +62,10 @@ Rules: Always return valid JSON only. Pick 4-6 tools. Be opinionated — recomme
 // ── MAIN APP ───────────────────────────────────────────────────
 export default function Stax() {
   const [phase, setPhase] = useState("landing");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [stack, setStack] = useState([]);
+  const [stack, setStack] = useState<any[]>([]);
   const [stackTitle, setStackTitle] = useState("");
   const [stackSummary, setStackSummary] = useState("");
   const [aiMessage, setAiMessage] = useState("");
