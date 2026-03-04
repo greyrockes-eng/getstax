@@ -74,14 +74,12 @@ export default function Stax() {
   const [waitlistCount] = useState(Math.floor(Math.random()*800)+1200);
   const [mounted, setMounted] = useState(false);
   const [scrollX, setScrollX] = useState(0);
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef(null);
   const cardRef = useRef(null);
   const animFrame = useRef(null);
-
+  useEffect(() => { (messagesEndRef.current as HTMLDivElement | null)?.scrollIntoView({behavior:"smooth"}); }, [messages]);
   useEffect(() => { setMounted(true); }, []);
-  useEffect(() => { messagesEndRef.current?.scrollIntoView({behavior:"smooth"}); }, [messages]);
-
   // Animate scrolling tool pills
   useEffect(() => {
     let x = 0;
