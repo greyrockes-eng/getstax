@@ -88,7 +88,7 @@ export default function Stax() {
     return () => cancelAnimationFrame(animFrame.current);
   }, []);
 
-  const sendMessage = async (userText) => {
+  const sendMessage = async (userText: string) => {
     if (!userText.trim() || loading) return;
     const newMessages = [...messages, {role:"user", content:userText}];
     setMessages(newMessages);
